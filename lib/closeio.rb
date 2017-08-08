@@ -1,5 +1,6 @@
 require_relative 'closeio/client'
 require 'hashie/mash'
+require 'faraday'
 
 module Closeio
   class Mash < Hashie::Mash
@@ -7,3 +8,10 @@ module Closeio
   end
 end
 
+module FaradayMiddleware
+  class Mashify
+    dependency do
+      self.mash_class = Closeio::Mash
+    end
+  end
+end
