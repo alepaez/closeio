@@ -63,7 +63,7 @@ module Closeio
         end
       end while res.has_more
       json = {has_more: false, total_results: res.total_results, data: results.flatten}
-      Hashie::Mash.new json
+      Closeio::Mash.new json
     end
 
     private
